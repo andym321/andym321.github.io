@@ -22,5 +22,23 @@
 <body>
     <iframe id="typeform-full" src="https://tosm8skx5gu.typeform.com/to/pJ0eN1ww"></iframe>
     <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script>
+
+      <!-- Typeform SDK script with redirection logic -->
+    <script>
+        // Initialize Typeform Widget using Typeform SDK
+        (function() {
+        const formId = 'pJ0eN1ww';
+        const typeformEmbed = window.typeformEmbed.makeWidget(document.querySelector('.typeform-widget'), `https://tosm8skx5gu.typeform.com/to/${formId}`, {
+            hideHeaders: true,
+            hideFooter: true
+        });
+
+        // Listen for the form submission event
+        typeformEmbed.onSubmit = function(event) {
+            window.location.href = 'https://google.com/';
+        };
+        })();
+    </script>
+
 </body>
 </html>
