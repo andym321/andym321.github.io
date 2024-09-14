@@ -12,7 +12,7 @@
             }
     
             /* Make the iframe take up the full height of the viewport */
-            #typeform-full {
+            .typeform-widget {
                 width: 100%;
                 height: 100vh;
                 border: none;
@@ -21,8 +21,7 @@
     </head>
 <body>
 
-    <!-- Button to open Typeform as a popup -->
-    <div data-tf-widget="pJ0eN1ww" data-tf-on-started="redirectAfterSubmit"></div>
+    <div class="typeform-widget" data-tf-widget="pJ0eN1ww" data-tf-on-started="redirectAfterSubmit"></div>
 
     <!-- Typeform embed script -->
     <script src="//embed.typeform.com/next/embed.js"></script>
