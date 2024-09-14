@@ -1,40 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Type2Academy</title>
-        <style>
-            /* Ensure the body and html elements take up the full height */
-            html, body {
-                height: 100%;
-                margin: 0;
-            }
-    
-            /* Make the iframe take up the full height of the viewport */
-            #typeform-full {
-                width: 100%;
-                height: 100vh;
-                border: none;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type2Academy</title>
+    <style>
+        /* Ensure the body and html elements take up the full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Style for the Typeform widget container */
+        .typeform-widget {
+            width: 100%;
+            height: 100vh;
+        }
+    </style>
+</head>
 <body>
 
-    <!-- Button to open Typeform as a popup -->
-    <div data-tf-widget="pJ0eN1ww" data-tf-on-started="redirectAfterSubmit"></div>
+    <!-- Container for Typeform widget -->
+    <div id="typeform-widget" class="typeform-widget"></div>
 
     <!-- Typeform embed script -->
-    <script src="//embed.typeform.com/next/embed.js"></script>
+    <script src="https://embed.typeform.com/embed.js"></script>
 
     <script>
-      // This function is called after form submission
-      function redirectAfterSubmit({ formId, responseId }) {
-        console.log(`Form ${formId} submitted, response id: ${responseId}`);
-        
-        // Redirect to Google after the form is submitted
+      // This function is called when the form starts
+      function redirectAfterStart() {
+        console.log('Form has started');
+        // Redirect to Google when the form starts
         window.location.href = 'https://google.com';
       }
+
+      // Initialize Typeform widget
+      window.onload = function() {
+        const formId = 'pJ0eN1ww'; // Your Typeform form ID
+        window.typeformEmbed.makeWidget(document.getElementById('typeform-widget'), `https://tosm8skx5gu.typeform.com/to/${formId}`, {
+          hideHeaders: true,
+          hideFooter: true,
+          onStart: redirectAfterStart
+        });
+      };
     </script>
 
 </body>
