@@ -9,13 +9,10 @@
         html, body {
             height: 100%;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Hide scrollbars */
         }
-        /* Style for the Typeform widget */
-        .typeform-widget {
+
+        /* Make the iframe take up the full height of the viewport */
+        #typeform-full {
             width: 100%;
             height: 100vh;
             border: none;
@@ -23,34 +20,7 @@
     </style>
 </head>
 <body>
-
-    <!-- Embed Typeform directly with an iframe -->
-    <iframe id="typeform-full" class="typeform-widget" src="https://tosm8skx5gu.typeform.com/to/pJ0eN1ww"></iframe>
-
-    <!-- Typeform embed script -->
-    <script src="https://embed.typeform.com/embed.js"></script>
-
-    <script>
-      // This function is called after form submission
-      function redirectAfterSubmit() {
-        console.log('Form submitted');
-        // Redirect to the specified URL after the form is submitted
-        window.location.href = 'https://type2academy.com/purchase?product_id=5802004';
-      }
-
-      // Embed Typeform directly on page load
-      window.onload = function() {
-        // Get the iframe element
-        const iframe = document.getElementById('typeform-full');
-        
-        // Use Typeform Embed SDK to initialize the widget
-        window.typeformEmbed.makeWidget(iframe, iframe.src, {
-          hideHeaders: true,
-          hideFooter: true,
-          onSubmit: redirectAfterSubmit
-        });
-      };
-    </script>
-
+    <iframe id="typeform-full" src="https://tosm8skx5gu.typeform.com/to/pJ0eN1ww"></iframe>
+    <script type="text/javascript" src="https://embed.typeform.com/embed.js"></script>
 </body>
 </html>
