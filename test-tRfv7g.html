@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type2Academy</title>
+    <style>
+        /* Ensure the body and html elements take up the full height */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Button to open Typeform as a popup -->
+    <div data-tf-widget="pJ0eN1ww" data-tf-on-started="redirectAfterSubmit"></div>
+
+    <!-- Typeform embed script -->
+    <script src="//embed.typeform.com/next/embed.js"></script>
+
+    <script>
+      // This function is called after form submission
+      function redirectAfterSubmit({ formId, responseId }) {
+        console.log(`Form ${formId} submitted, response id: ${responseId}`);
+        
+        // Redirect to Google after the form is submitted
+        window.location.href = 'https://google.com';
+      }
+    </script>
+
+</body>
+</html>
