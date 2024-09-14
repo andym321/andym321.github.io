@@ -21,7 +21,7 @@
 <body>
 
     <!-- Typeform widget container -->
-    <div class="typeform-widget" data-url="https://tosm8skx5gu.typeform.com/to/pJ0eN1ww" style="width: 100%; height: 100vh;"></div>
+    <div id="typeform-widget" style="width: 100%; height: 100vh;"></div>
     
     <!-- Typeform embed script -->
     <script src="https://embed.typeform.com/embed.js"></script>
@@ -31,15 +31,19 @@
         // Initialize Typeform Widget using Typeform SDK
         (function() {
             const formId = 'pJ0eN1ww';
-            const typeformEmbed = window.typeformEmbed.makeWidget(document.querySelector('.typeform-widget'), `https://tosm8skx5gu.typeform.com/to/${formId}`, {
-                hideHeaders: true,
-                hideFooter: true
-            });
+            
+            // Embed the Typeform widget
+            const typeformEmbed = window.typeformEmbed.makeWidget(document.getElementById('typeform-widget'), 
+                `https://tosm8skx5gu.typeform.com/to/${formId}`, {
+                    hideHeaders: true,
+                    hideFooter: true
+                }
+            );
 
-            // Listen for the form submission event
-            typeformEmbed.addEventListener('onSubmit', function() {
-                // Redirect to Google upon submission
-                window.location.href = 'https://google.com/';
+            // Listen for the event that is triggered after form submission
+            typeformEmbed.addEventListener('submit', function() {
+                // Redirect to Google upon form submission
+                window.location.href = 'https://google.com';
             });
         })();
     </script>
