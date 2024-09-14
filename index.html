@@ -13,17 +13,9 @@
             justify-content: center;
             align-items: center;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-        }
     </style>
 </head>
 <body>
-
-    <!-- Button to open Typeform as a popup -->
-    <button data-tf-popup="pJ0eN1ww" data-tf-on-submit="redirectAfterSubmit">Open Form</button>
-
     <!-- Typeform embed script -->
     <script src="//embed.typeform.com/next/embed.js"></script>
 
@@ -33,8 +25,16 @@
         console.log(`Form ${formId} submitted, response id: ${responseId}`);
         
         // Redirect to Google after the form is submitted
-        window.location.href = 'https://google.com';
+        window.location.href = 'https://type2academy.com/purchase?product_id=5802004';
       }
+
+      // Automatically open the Typeform popup when the page loads
+      window.onload = function() {
+        // Open Typeform popup programmatically
+        window.typeformEmbed.makePopup('https://tosm8skx5gu.typeform.com/to/pJ0eN1ww', {
+          onSubmit: redirectAfterSubmit
+        }).open();
+      };
     </script>
 
 </body>
